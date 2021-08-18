@@ -8,9 +8,8 @@ from aqt import gui_hooks, mw
 from aqt.editor import Editor
 from aqt.webview import WebContent
 
-# from aqt.qt import debug; debug()
-mw.addonManager.setWebExports(__name__, r"web/.*(css|js)")
-addon_package = mw.addonManager.addonFromModule(__name__)
+mw.addonManager.setWebExports(__name__, r"web/.*(css|js)")#设置对addon文件夹下某些文件的访问的权限
+addon_package = mw.addonManager.addonFromModule(__name__)#获取这个插件的目录名
 
 
 def note_loaded(editor):
@@ -22,9 +21,11 @@ def note_loaded(editor):
             render_latex(val, model, col))
         for fld, val in items
     ]
+    from aqt.qt import debug;
+    # debug()
     dumped = json.dumps(fldContentTexProcessed)
     editor.web.eval(f"""set_texs({dumped});""")
-    editor.web.eval(f"on_focus_field(0);")
+    # editor.web.eval(f"on_focus_field(0);")
 
 
 gui_hooks.editor_did_load_note.append(note_loaded)

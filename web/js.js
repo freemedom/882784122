@@ -17,7 +17,7 @@ function on_focus_tex(event) {
     elem = event.target;
     currentField = elem;
     var ord = currentFieldOrdinal();
-    on_focus_field(ord);
+     on_focus_field(ord);
 }
 
 function on_focus_field(ord) {
@@ -54,9 +54,10 @@ function set_tex(ord, fieldValue, fieldValueTexProcessed) {
     MathJax.Hub.Queue(["Typeset", MathJax.Hub,`f${ord}`]);
 }
 
-function set_texs(tex){
+function set_texs(tex){//保存未渲染的字段值
     nb_fields = tex.length;
     original_fields = new Array(nb_fields);
+//    document.write("hello,world");
     for (var i = 0; i < nb_fields; i++) {
         fieldValue = tex[i];
         if (fieldValue === "") {
