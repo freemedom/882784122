@@ -25,7 +25,7 @@ def note_loaded(editor):
     # debug()
     dumped = json.dumps(fldContentTexProcessed)
     editor.web.eval(f"""set_texs({dumped});""")
-    # editor.web.eval(f"on_focus_field(0);")
+    editor.web.eval(f"on_focus_field(0);")
 
 
 gui_hooks.editor_did_load_note.append(note_loaded)
