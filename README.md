@@ -1,4 +1,4 @@
-# Uses tex/mathjax as image in editor/reviewer
+# Uses tex/mathjax as image in editor/reviewer 添加了一些个人理解的注释
 ## Rationale
 Most of the time, I don't care about the LaTeX/MathJax code, appart
 when I want to edit it. I prefer to see the result. So this add-on
