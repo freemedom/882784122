@@ -28,12 +28,12 @@ def note_loaded(editor):
     editor.web.eval(f"on_focus_field(0);")
 
 
-gui_hooks.editor_did_load_note.append(note_loaded)
+gui_hooks.editor_did_load_note.append(note_loaded)#似乎是初始加载的时候调用
 
 
-def onBridgeCmd(handled, message, editor):
+def onBridgeCmd(handled, message, editor):#bridge 不知道什么意思
     if isinstance(editor, Editor) and message.startswith("blur"):
-        ord = onBlur(editor, message)
+        ord = onBlur(editor, message)#blur 失去焦点
         val = editor.note.fields[int(ord)]
         fldContent = editor.mw.col.media.escapeImages(val)
         fldContentTexProcessed = editor.mw.col.media.escapeImages(
